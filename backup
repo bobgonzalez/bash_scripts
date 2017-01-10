@@ -1,0 +1,2 @@
+#!/bin/bash
+tar -cf- $1 | pv -pterbWs $(du -chsm $1 | grep total | tr -dc 0-9)M | gzip -9 | gpg -co- > $2/$1.tar.gz.gpg

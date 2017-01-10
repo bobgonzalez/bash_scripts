@@ -1,0 +1,2 @@
+#!/bin/bash
+gpg -d $1 | pv -pterbWs $(du -chsm $1 | grep total | tr -dc 0-9)M | tar xz

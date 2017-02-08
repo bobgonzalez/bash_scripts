@@ -1,7 +1,7 @@
 # bash_scripts
-Backup: Tar's, compresses and encrypts files / folders. 
+backup: Tar's, compresses and encrypts files / folders. 
 
-Unpack: Used to unencrypt, uncompress and untar files produced with backup.
+unpack: Used to unencrypt, uncompress and untar files produced with backup.
 
 sshscp: Fill in user and server then use to push files / folders to server.
 

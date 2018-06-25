@@ -4,12 +4,7 @@ import os
 import operator
 
 
-exceptions = ['vim', 'su root']
-
-
 def keywithmaxval(d, i):
-     """ a) create a list of the dict's keys and values;
-         b) return the key with the max value"""
      if i == 0:
          return '\n'
      v = str(max(list(d.values())))
@@ -17,21 +12,34 @@ def keywithmaxval(d, i):
      d[k] = 0
      if k.startswith(tuple(exceptions)):
          return keywithmaxval(d, i)
+     print('Create alias for ' + k + '(' + v + ')? Y/y/N/n :')
+     to_alias = input().upper()
+     if to_alias == 'Y':
+         print('Enter alias :')
+         alias = input().rstrip()
+         sh_rc.write('\nalias ' + alias + '="' + k + '"')
      return v + ' : ' + k + '\n' + keywithmaxval(d, i-1) 
 
 
+# exceptions = ['vim', 'su root']
 homedir = os.path.expanduser('~')
-zsh_history = open(homedir+"/.zsh_history", 'r')
-content = zsh_history.readlines()
+sh_history = open(homedir + '/.zsh_history', 'r')
+sh_rc = open(homedir + '/.zshrc', 'a')
+except_file = open('./timewasters_exceptions', 'r')
+exceptions = except_file.readlines()
+exceptions = [x.strip() for x in exceptions]
+print(exceptions)
+content = sh_history.readlines()
 cmd_map = {}
 for line in content:
     line = line.strip().split(';')
-    print(line[1:])
     if len(line) > 1:
         if str(line[1]) not in cmd_map:
             cmd_map[str(line[1])] = 0
         else:
             cmd_map[str(line[1])] = cmd_map[str(line[1])] + 1
-print('\n\n\n' + keywithmaxval(cmd_map, 5))
-
+keywithmaxval(cmd_map, 5)
+print('Restart shell to load new alias')
+sh_rc.close()
+sh_history.close()
 

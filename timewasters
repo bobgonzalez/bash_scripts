@@ -1,0 +1,37 @@
+#! /bin/python3
+
+import os
+import operator
+
+
+exceptions = ['vim', 'su root']
+
+
+def keywithmaxval(d, i):
+     """ a) create a list of the dict's keys and values;
+         b) return the key with the max value"""
+     if i == 0:
+         return '\n'
+     v = str(max(list(d.values())))
+     k = str(list(d.keys())[list(d.values()).index(max(list(d.values())))])
+     d[k] = 0
+     if k.startswith(tuple(exceptions)):
+         return keywithmaxval(d, i)
+     return v + ' : ' + k + '\n' + keywithmaxval(d, i-1) 
+
+
+homedir = os.path.expanduser('~')
+zsh_history = open(homedir+"/.zsh_history", 'r')
+content = zsh_history.readlines()
+cmd_map = {}
+for line in content:
+    line = line.strip().split(';')
+    print(line[1:])
+    if len(line) > 1:
+        if str(line[1]) not in cmd_map:
+            cmd_map[str(line[1])] = 0
+        else:
+            cmd_map[str(line[1])] = cmd_map[str(line[1])] + 1
+print('\n\n\n' + keywithmaxval(cmd_map, 5))
+
+

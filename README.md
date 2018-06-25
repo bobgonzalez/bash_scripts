@@ -1,24 +1,30 @@
 # bash_scripts
-## backup: 
+## backup {bash} : 
 * Tar
 * Compress 
 * Encrypts files / folders. 
 
-## unpack: 
+## unpack {bash} : 
 * Unencrypt
 * Uncompress 
 * Untar files produced with backup.
 
-## sshscp: 
+## sshscp {bash} : 
 * Fill in user and server then use to push files / folders to server.
 
-## sshscp2: 
+## sshscp2 {bash} : 
 * Fill in user and server then use to pull files / folders from server.
 
-## sp: 
+## sp {bash} : 
 * Run aspell takes file as argument
 
-## ctset: 
+## ctset {bash} : 
 * Installs ctags and cscope 
 * Builds cscope database for working directory 
 * Generates ctags
+
+## hfind {bash} :
+* grep history for first argument
+
+## timewasters {python} :
+* Find the nth(first argument) most used shell commands  

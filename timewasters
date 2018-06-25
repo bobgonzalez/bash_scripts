@@ -21,7 +21,6 @@ def keywithmaxval(d, i):
      return v + ' : ' + k + '\n' + keywithmaxval(d, i-1) 
 
 
-# exceptions = ['vim', 'su root']
 homedir = os.path.expanduser('~')
 sh_history = open(homedir + '/.zsh_history', 'r')
 sh_rc = open(homedir + '/.zshrc', 'a')

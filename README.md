@@ -1,12 +1,24 @@
 # bash_scripts
-backup: Tar's, compresses and encrypts files / folders. 
+## backup: 
+* Tar
+* Compress 
+* Encrypts files / folders. 
 
-unpack: Used to unencrypt, uncompress and untar files produced with backup.
+## unpack: 
+* Unencrypt
+* Uncompress 
+* Untar files produced with backup.
 
-sshscp: Fill in user and server then use to push files / folders to server.
+## sshscp: 
+* Fill in user and server then use to push files / folders to server.
 
-sshscp2: Fill in user and server then use to pull files / folders from server.
+## sshscp2: 
+* Fill in user and server then use to pull files / folders from server.
 
-sp: Runs aspell takes file as argument
+## sp: 
+* Run aspell takes file as argument
 
-ctset: Installs ctags and cscope, then builds cscope database for working directory then generates ctags.
+## ctset: 
+* Installs ctags and cscope 
+* Builds cscope database for working directory 
+* Generates ctags
